@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.button);
 
 
-        personData();
+        parseParibu();
         parseBitstmp();
 
         Toast.makeText(MainActivity.this,"Veriler Yüklendi....",Toast.LENGTH_SHORT).show();
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                personData();
+                parseParibu();
                 parseBitstmp();
 
                 Toast.makeText(MainActivity.this,"Yenilendi",Toast.LENGTH_SHORT).show();
@@ -55,9 +55,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void personData(){
-
-
+    void parseParibu(){
+        
         StringRequest request = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String string) {
@@ -91,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     void parseBitstmp(){
-
 
         StringRequest request = new StringRequest(url2, new Response.Listener<String>() {
             @Override
