@@ -21,7 +21,7 @@ import com.android.volley.toolbox.Volley;
 public class MainActivity extends AppCompatActivity {
     String url = "https://www.paribu.com/ticker";
     String url2 = "https://www.bitstamp.net/api/ticker";
-    TextView t1,t2,t3,t4,t5;
+    TextView t1,t2,t3,t4,t5,t7;
     Button btn;
 
     @Override
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         t3 = (TextView) findViewById(R.id.textView3);
         t5 = (TextView) findViewById(R.id.textView6);
         t2 = (TextView) findViewById(R.id.textView4);
+        t7 = (TextView) findViewById(R.id.textView7);
         btn = (Button) findViewById(R.id.button);
 
 
@@ -72,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
                     t2.setText("24 Saat En Düşük : "+lowPrice24hr+" TL");
                     t3.setText("24 Saat En Yüksek : "+highPrice24hr+" TL");
                     t4.setText("Hacim : "+volume);
+                    Double btc = Double.valueOf(lastPrice) * 0.13815372;
+                    t7.setText(String.valueOf(btc));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
