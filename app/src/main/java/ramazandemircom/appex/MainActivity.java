@@ -3,6 +3,8 @@ package ramazandemircom.appex;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,22 +23,20 @@ import com.android.volley.toolbox.Volley;
 public class MainActivity extends AppCompatActivity {
     String url = "https://www.paribu.com/ticker";
     String url2 = "https://www.bitstamp.net/api/ticker";
-    TextView t1,t2,t3,t4,t5,t7;
-    Button btn;
+
+    @BindView(R.id.textView2) TextView  t1;
+    @BindView(R.id.textView3) TextView  t3;
+    @BindView(R.id.textView4) TextView  t2;
+    @BindView(R.id.textView5) TextView  t4;
+    @BindView(R.id.textView6) TextView  t5;
+    @BindView(R.id.textView7) TextView  t7;
+    @BindView(R.id.button) Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        t1 = (TextView) findViewById(R.id.textView2);
-        t4 = (TextView) findViewById(R.id.textView5);
-        t3 = (TextView) findViewById(R.id.textView3);
-        t5 = (TextView) findViewById(R.id.textView6);
-        t2 = (TextView) findViewById(R.id.textView4);
-        t7 = (TextView) findViewById(R.id.textView7);
-        btn = (Button) findViewById(R.id.button);
-
+        ButterKnife.bind(this);
 
         parseParibu();
         parseBitstmp();
